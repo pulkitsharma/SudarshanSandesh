@@ -213,9 +213,9 @@ public class MainPanelInterface extends JFrame implements ActionListener{
         	while(countRows>0){
         		String[] args = new String[11];
         		String checkSrNo = (String)table.getValueAt((Integer)selectedRows[countRows-1], 1);
-        		if(checkSrNo==null || checkSrNo.trim().length()==0){
+        		if( null != checkSrNo){
     	            countRows--;
-    	            JOptionPane.showMessageDialog(null, "Member " + args[1] + " added successfully");
+    	            JOptionPane.showMessageDialog(null, "Member " + args[2] + " not added because it already exists");
         			continue;
         		}
         		for(int i=0;i<11;i++){
@@ -256,6 +256,9 @@ public class MainPanelInterface extends JFrame implements ActionListener{
         	resModel.updateDataSet(data);
         } else if("clear".equals(e.getActionCommand())) {
         	data = new Object[10][12];
+        	for(int i=0;i<10;i++) {
+        		data[i][0] = new Boolean(false); 
+        	}
         	resModel.updateDataSet(data);
         }
 
