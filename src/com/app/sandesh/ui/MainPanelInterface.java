@@ -180,7 +180,7 @@ public class MainPanelInterface extends JFrame implements ActionListener{
         	String searchedName = searchTextField.getText();
         	String selectedOption = jList.getSelectedValue().toString();
         	if(null!=searchedName && searchedName.length()!=0 && searchedName.trim()!=""){
-        		ArrayList searchedResults = ExcelThroughApi.searchEntry(selectedOption,searchedName);
+        		ArrayList searchedResults = ExcelThroughApi.searchEntry(selectedOption,searchedName.toLowerCase());
         		Object[][] stringArray = new Object[searchedResults.size()][12];
         		Iterator iter = searchedResults.iterator();
         		int i=0;
